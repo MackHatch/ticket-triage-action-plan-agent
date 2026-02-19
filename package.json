@@ -1,0 +1,28 @@
+{
+  "name": "ticket-triage-agent",
+  "version": "1.0.0",
+  "description": "CLI agent for ticket triage, classification, severity scoring, and action planning",
+  "type": "module",
+  "main": "dist/cli/main.js",
+  "scripts": {
+    "dev": "tsx src/cli/main.ts",
+    "build": "tsc",
+    "start": "node dist/cli/main.js",
+    "test": "vitest",
+    "demo": "node scripts/demo.mjs"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "openai": "^4.73.0",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/node": "^22.9.0",
+    "tsx": "^4.19.2",
+    "typescript": "^5.6.3",
+    "vitest": "^2.1.4"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
