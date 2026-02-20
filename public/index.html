@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ticket Triage Agent</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Ticket Triage Agent</h1>
+
+    <div class="form">
+      <div class="row">
+        <label for="title">Title</label>
+        <input type="text" id="title" value="Ticket" placeholder="Ticket title">
+      </div>
+      <div class="row">
+        <label for="tone">Tone</label>
+        <select id="tone">
+          <option value="neutral">neutral</option>
+          <option value="direct">direct</option>
+        </select>
+      </div>
+      <div class="row">
+        <label for="source">Source</label>
+        <select id="source">
+          <option value="ticket">ticket</option>
+          <option value="email">email</option>
+        </select>
+      </div>
+      <div class="row">
+        <label for="model">Model (optional)</label>
+        <input type="text" id="model" placeholder="gpt-4o-mini">
+      </div>
+      <div class="row">
+        <label for="ticketText">Ticket text</label>
+        <textarea id="ticketText" rows="8" placeholder="Paste ticket content..."></textarea>
+      </div>
+      <div class="actions">
+        <button type="button" id="triageBtn">Triage Ticket</button>
+        <button type="button" id="loadGood">Load Sample: Good</button>
+        <button type="button" id="loadVague">Load Sample: Vague</button>
+      </div>
+    </div>
+
+    <p id="status" class="status"></p>
+
+    <div class="outputs">
+      <div class="panel">
+        <h2>Markdown</h2>
+        <pre id="markdown"></pre>
+      </div>
+      <div class="panel">
+        <h2>JSON</h2>
+        <pre id="json"></pre>
+      </div>
+      <div class="panel">
+        <h2>Trace</h2>
+        <pre id="trace"></pre>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

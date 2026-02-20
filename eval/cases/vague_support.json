@@ -1,0 +1,13 @@
+{
+  "id": "vague_support",
+  "title": "Student can't access application",
+  "source": "ticket",
+  "tone": "neutral",
+  "ticketText": "Hi,\n\nA student in my class says they can't get into the application. Can someone look into this?\n\nThanks",
+  "expect": {
+    "ticketType": ["support", "bug"],
+    "severity": ["sev2", "sev3"],
+    "mustHaveQuestions": true,
+    "minChecklistItems": 2
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "id": "good_bug",
+  "title": "Payments stuck after submit",
+  "source": "ticket",
+  "tone": "direct",
+  "ticketText": "Subject: Payments stuck after submit\n\nWhen I click \"Submit Payment\" on the checkout page, the spinner appears for about 30 seconds and then nothing happens. No confirmation, no error message. The payment does not appear in my order history.\n\nExpected: After clicking Submit, I should see a confirmation page and receive an email receipt.\n\nSteps I took:\n1. Added items to cart\n2. Went to checkout\n3. Entered payment details (test card 4242...)\n4. Clicked \"Submit Payment\"\n5. Waited - spinner never stopped\n\nThis started happening today. I'm on Chrome 120, Windows 11.",
+  "expect": {
+    "ticketType": ["bug"],
+    "severity": ["sev1", "sev2"],
+    "mustHaveQuestions": false,
+    "minChecklistItems": 3
+  }
+}

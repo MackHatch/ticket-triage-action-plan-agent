@@ -2,4 +2,6 @@ node_modules
 dist
 outputs/*
 !outputs/.gitkeep
+eval/results/*
+!eval/results/.gitkeep
 .env

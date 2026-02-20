@@ -56,6 +56,34 @@ Each successful run writes artifacts to `outputs/`:
 
 - **Trace logging** — Each run writes `outputs/<runId>.trace.json` with runId, model, timestamps, flags, parse status, validation errors (if any), and evaluation counts (`checklistCount`, `questionCount`).
 
+## Web Demo
+
+Run the server (serves both API and static UI):
+
+```bash
+npm run api
+```
+
+Open **http://localhost:3000** in your browser. Use the sample buttons ("Load Sample: Good", "Load Sample: Vague") to populate the form, then click "Triage Ticket".
+
+## API
+
+Run the HTTP server (also serves the web UI at `/`):
+
+```bash
+npm run api
+```
+
+Example request:
+
+```bash
+curl -X POST http://localhost:3000/triage \
+  -H "Content-Type: application/json" \
+  -d "{\"title\":\"Student can't access application\",\"ticketText\":\"Hi, a student says they can't get into the application. Can someone look?\nThanks\",\"tone\":\"neutral\",\"source\":\"ticket\"}"
+```
+
+The API returns validated JSON (`result`), Markdown (`markdown`), and trace metadata (`trace`). It does not write artifacts to disk; use the CLI for file output.
+
 ## CLI Usage
 
 ```bash
@@ -68,6 +96,18 @@ npm run dev -- <path-to-ticket.txt> [options]
 | `--tone neutral\|direct` | neutral | Reply draft tone |
 | `--source ticket\|email` | ticket | Ticket source type |
 | `--model <name>` | gpt-4o-mini | OpenAI model |
+
+## Evaluation Harness
+
+An eval harness detects regressions when prompts or models change. It runs golden cases against the agent and validates outputs against invariants (not exact text).
+
+**Run:** `npm run eval`
+
+- Requires `RUN_EVALS=1` (set via cross-env in the script) to avoid accidental paid LLM calls in CI
+- Writes reports to `eval/results/<id>.<timestamp>.json`
+- Exits non-zero if any case fails
+
+Add cases in `eval/cases/*.json`; see existing cases for the expect format.
 
 ## Docs
 
